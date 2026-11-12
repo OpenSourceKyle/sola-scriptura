@@ -1,0 +1,15 @@
+baseURL = 'https://opensourcekyle.github.io/sola-scriptura/'
+locale = 'en-us'
+title = 'Sola Scriptura'
+theme = 'hugo-bearblog'
+
+[params]
+  # Optional: title shown at the top of the page
+  title = "Sola Scriptura"
+  description = "Scripture quick-reference"
+
+# Obsidian searches the filename "Bible Verses.md".
+# Hugo still serves that file as the only page.
+[[module.mounts]]
+  source = "content/Bible Verses.md"
+  target = "content/_index.md"

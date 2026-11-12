@@ -1,0 +1,56 @@
+<style>
+  :root {
+    color-scheme: dark;
+    --background-color: #01242e;
+    --heading-color: #eee;
+    --text-color: #ddd;
+    --link-color: #8cc2dd;
+    --visited-color: #8b6fcb;
+    --blockquote-color: #ccc;
+  }
+
+  html[data-theme="light"] {
+    color-scheme: light;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --blockquote-color: #222;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  header .title h2 {
+    margin: 0.5em 0;
+  }
+
+  #theme-toggle {
+    flex: 0 0 auto;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 0.9em;
+    border: 1px solid var(--text-color);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--heading-color);
+    font: inherit;
+    font-size: 0.9rem;
+  }
+</style>
+<script>
+  (function () {
+    try {
+      var theme = localStorage.getItem("theme");
+      if (theme === "light" || theme === "dark") {
+        document.documentElement.setAttribute("data-theme", theme);
+      }
+    } catch (e) {}
+  })();
+</script>

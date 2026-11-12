@@ -1,0 +1,26 @@
+<script>
+  (function () {
+    var btn = document.getElementById("theme-toggle");
+    if (!btn) return;
+
+    function current() {
+      return document.documentElement.getAttribute("data-theme") || "dark";
+    }
+
+    function apply(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      try {
+        localStorage.setItem("theme", theme);
+      } catch (e) {}
+      var toLight = theme === "dark";
+      btn.textContent = toLight ? "Light" : "Dark";
+      btn.setAttribute("aria-label", toLight ? "Switch to light mode" : "Switch to dark mode");
+      btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+    }
+
+    apply(current());
+    btn.addEventListener("click", function () {
+      apply(current() === "dark" ? "light" : "dark");
+    });
+  })();
+</script>
